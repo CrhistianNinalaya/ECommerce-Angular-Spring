@@ -11,12 +11,17 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "tb_users")
-@Data
+
 @AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class UserEntity {
 	@Id	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
@@ -30,8 +35,9 @@ public class UserEntity {
 	
 	@ManyToOne
 	@JoinColumn(name= "gender_id")
-	private GenderEntity gender;
+	private GenderEntity genderId;
 
+	@Column(name = "dateRegistration")
 	private LocalDate dateRegistration;
 
 	@Column(length = 60, nullable = false, unique = true)
@@ -46,5 +52,5 @@ public class UserEntity {
 	
 	@ManyToOne
 	@JoinColumn(name = "type_user_id")
-	private TypeUserEntity typeUser;
+	private TypeUserEntity typeUserId;
 }
