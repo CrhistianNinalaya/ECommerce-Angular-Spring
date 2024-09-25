@@ -4,6 +4,8 @@ import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
@@ -16,9 +18,8 @@ import lombok.Data;
 @Data
 public class ProductEntity {
 	@Id
-	@Column(length = 7)
-//	@Check(constraints = "cod_product ~ '^PRO[0-9]{4}$'")
-	private String codProduct;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int codProduct;
 
 	@Column(name = "description", length = 45, nullable = false)
 	private String description;

@@ -2,21 +2,25 @@ package com.ecommerce.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "tb_type_user")
-@Data
-
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class TypeUserEntity {
 	@Id
-	@Column(name = "cod_type_user", length = 7)
-//	@Check(constraints = "cod_type_user ~ '^TYP[0-9]{4}$'")
-	private String codTypeUser;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int codTypeUser;
 
 	@Column(length = 25, nullable = false)
 	private String description;

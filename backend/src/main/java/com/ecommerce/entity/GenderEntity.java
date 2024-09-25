@@ -6,15 +6,21 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "tb_gender")
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class GenderEntity {
     @Id    
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private byte codGender;
+    private Integer codGender;
 
     @Column(name = "name", length = 25)
     private String name;
